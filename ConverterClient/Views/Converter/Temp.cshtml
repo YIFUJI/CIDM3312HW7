@@ -1,0 +1,39 @@
+@model ConverterViewModel
+@{
+    ViewData["Title"] = "Temperature Converter";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <!-- 1 of 3 -->
+    </div>
+    <div class="col-6">
+      <!-- 2 of 3 (wider) -->
+        <form asp-controller="Converter" asp-action="ConvertTemp" method="post">
+            <div class="form-group">
+                <label for="number">Number for Conversion</label>
+                <input type="text" class="form-control" id="number" placeholder="Enter Your Number" asp-for="@Model.ValueToConvert">
+            </div>
+            <div class="form-group">
+                <label for="temp">Conversion</label>
+                <select class="form-control" id="function" asp-for="@Model.ConversionType">
+                <option value="CtoF">Celsius to Fahrenheit</option>
+                <option value="CtoK">Celsius to Kelvin</option>
+                <option value="FtoC">Fahrenheit to Celsius</option>
+                <option value="FtoK">Fahrenheit to Kelvin</option>
+                <option value="KtoC">Kelvin to Celsius</option>
+                <option value="KtoF">Kelvin to Fahrenheit</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="col">
+      <!-- 3 of 3 -->
+    </div>
+  </div>
+</div>

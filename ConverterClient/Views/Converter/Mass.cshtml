@@ -1,0 +1,45 @@
+@model ConverterViewModel
+@{
+    ViewData["Title"] = "Mass Converter";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <!-- 1 of 3 -->
+    </div>
+    <div class="col-6">
+      <!-- 2 of 3 (wider) -->
+        <form asp-controller="Converter" asp-action="ConvertMass" method="post">
+            <div class="form-group">
+                <label for="number">Number for Conversion</label>
+                <input type="text" class="form-control" id="number" placeholder="Enter Your Number" asp-for="@Model.ValueToConvert">
+            </div>
+            <div class="form-group">
+                <label for="mass">Conversion</label>
+                <select class="form-control" id="function" asp-for="@Model.ConversionType">
+                <option value="GtoK">Grams to Kilograms</option>
+                <option value="GtoO">Grams to Ounces</option>
+                <option value="GtoP">Grams to Pounds</option>
+                <option value="KtoG">Kilograms to Grams</option>
+                <option value="KtoO">Kilograms to Ounces</option>
+                <option value="KtoP">Kilograms to Pounds</option>
+                <option value="OtoG">Ounces to Grams</option>
+                <option value="OtoK">Ounces to Kilograms</option>
+                <option value="OtoP">Ounces to Pounds</option>
+                <option value="PtoG">Pounds to Grams</option>
+                <option value="PtoK">Pounds to Kilograms</option>
+                <option value="PtoO">Pounds to Ounces</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="col">
+      <!-- 3 of 3 -->
+    </div>
+  </div>
+</div>
